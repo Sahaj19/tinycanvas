@@ -1,9 +1,15 @@
+const decrease_pencil_size = document.querySelector("#decrease_size");
+const actual_pencil_size = document.querySelector("#pencil_size");
+const increase_pencil_size = document.querySelector("#increase_size");
+const user_color = document.querySelector("#color");
+const clear_canvas = document.querySelector("#clear_canvas_button");
+
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
-let size = 20;
+let size = 5;
 isPressed = false;
-let color = "black";
+let pencil_color = "black";
 let x;
 let y;
 
@@ -41,7 +47,7 @@ canvas.addEventListener("mousemove", (event) => {
 function drawCircle(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size, 0, Math.PI * 2);
-  ctx.fillStyle = color;
+  ctx.fillStyle = pencil_color;
   ctx.fill();
 }
 
@@ -52,7 +58,43 @@ function drawLine(x1, y1, x2, y2) {
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
-  ctx.strokeStyle = color;
+  ctx.strokeStyle = pencil_color;
   ctx.lineWidth = size * 2;
   ctx.stroke();
 }
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//(increased pencil size button functionality)
+increase_pencil_size.addEventListener("click", () => {
+  size = size + 5;
+
+  if (size >= 20) {
+    size = 20;
+  }
+
+  actual_pencil_size.innerHTML = size;
+});
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//(decreased pencil size button functionality)
+decrease_pencil_size.addEventListener("click", () => {
+  size = size - 5;
+
+  if (size <= 5) {
+    size = 5;
+  }
+
+  actual_pencil_size.innerHTML = size;
+});
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//(picking personalized pencil color)
+user_color.addEventListener("change", (event) => {
+  pencil_color = event.target.value;
+});
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//(Let's clear our canvas)
+clear_canvas.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
