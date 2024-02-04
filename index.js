@@ -4,6 +4,8 @@ const increase_pencil_size = document.querySelector("#increase_size");
 const user_color = document.querySelector("#color");
 const clear_canvas = document.querySelector("#clear_canvas_button");
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//(canvas prerequisites)
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
@@ -16,14 +18,20 @@ let y;
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //(canvas functionality when mouse is clicked)
 canvas.addEventListener("mousedown", (event) => {
+  //mouse pressed
   isPressed = true;
+
+  //capturing initial mouse events
   x = event.offsetX;
   y = event.offsetY;
 });
 
 //(canvas functionality when mouse is unclicked)
 canvas.addEventListener("mouseup", (event) => {
+  //mouse released
   isPressed = false;
+
+  //reset coordinates
   x = undefined;
   y = undefined;
 });
@@ -34,8 +42,13 @@ canvas.addEventListener("mousemove", (event) => {
     let x2 = event.offsetX;
     let y2 = event.offsetY;
 
+    // Draw circle at current mouse coordinates
     drawCircle(x2, y2);
+    // Draw line from previous coordinates to current coordinates
     drawLine(x, y, x2, y2);
+
+    // Update previous coordinates to current coordinates
+    //This update is necessary to ensure that when the user continues to draw on the canvas by moving the mouse while holding down the mouse button, the drawing follows the movement of the cursor smoothly.
     x = x2;
     y = y2;
   }

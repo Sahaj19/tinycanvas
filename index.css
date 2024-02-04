@@ -11,18 +11,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     min-height: 100vh;
     padding: 1rem;
 }
 
 #canvas {
-    border: 1px solid #000;
+    box-shadow: 0 0 4px 2px #000;
 }
 
 .toolbox {
-    background-color: steelblue;
-    width: 800px;
+    background-color: #000;
+    width: 805px;
     padding: 0.5rem;
     display: flex;
 }
@@ -47,11 +47,3 @@ body {
 }
 
 
-/************************ responsiveness ****************************/
-@media(max-width : 380px) {
-    .toolbox > * {
-        height: 40px;
-        width: 40px;
-        font-size: 1.25rem;
-    }
-}
