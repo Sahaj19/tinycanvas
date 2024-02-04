@@ -4,26 +4,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     min-height: 100vh;
     padding: 1rem;
 }
 
 #canvas {
-    height: 500px;
-    width: 90%;
-    border: 5px solid #000;
+    border: 1px solid #000;
 }
 
 .toolbox {
     background-color: steelblue;
-    width: 90%;
+    width: 800px;
     padding: 0.5rem;
     display: flex;
 }
