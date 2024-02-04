@@ -15,4 +15,4 @@ Future updates to tinycanvas may include :
 - Additional drawing tools and options.
 - Possibility of developing an entirely new application with distinct features and functionalities.
 
-deployed here : https://tinycanvas.netlify.app/
+deployed here : https://tinycanvas.netlify.app
